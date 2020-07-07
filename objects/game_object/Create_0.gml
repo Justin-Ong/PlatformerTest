@@ -1,0 +1,2 @@
+global.deaths = 0;
+global.just_died = false;
