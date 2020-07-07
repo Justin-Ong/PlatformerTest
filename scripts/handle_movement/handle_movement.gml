@@ -71,10 +71,14 @@ if (is_up_slope) {
 repeat(abs(horizontal_speed)) {
     //Slopes
 	if (is_up_slope) {
-		y -= incline;
+		y -= 1;
 	}
 	else if (is_down_slope) {
-		y += incline;
+		for (var i = 0; i < incline; i++) {
+			if (not place_meeting(x, y + 1, wall_object)) {
+				y += 1;
+			}
+		}
 	}
 	if (place_meeting(x + sign(horizontal_speed), y, solid_object)) {
         horizontal_speed = 0;
@@ -95,7 +99,7 @@ if (rmb_pressed) {
 		if (abs(horizontal_speed) == 0) {
 			var tmp = "b: " + string(sign(horizontal_speed) * -1);
 			show_debug_message(tmp);
-			horizontal_speed = -1 * sign(horizontal_speed);	//Reverse facingection
+			horizontal_speed = -1 * sign(horizontal_speed);	//Reverse direction
 		}
 		else if (abs(horizontal_speed) <= 1) {
 			var tmp = "c: " + string(sign(horizontal_speed) * 0.1);
