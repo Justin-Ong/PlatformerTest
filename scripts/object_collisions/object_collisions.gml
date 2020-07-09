@@ -1,5 +1,5 @@
 //Collision with coins
-var coin = instance_place(x, y, coin_object)
+var coin = instance_place(x, y, coin_object);
 if (coin) {
 	audio_play_sound(coin_collect_sound, 1, false);
 	with (coin) {
