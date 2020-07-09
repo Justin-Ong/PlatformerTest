@@ -1,3 +1,14 @@
+//Variables for movement
+is_on_ground = place_meeting(x, y + 1, solid_object);
+is_touching_left_wall = place_meeting(x - 1, y, solid_object);
+is_touching_right_wall = place_meeting(x + 1, y, solid_object);
+is_up_slope = (place_meeting(x + facing, y, slope_object) and not place_meeting(x - facing, y, slope_object));
+is_down_slope = (place_meeting(x - facing, y, slope_object) and not place_meeting(x + facing, y, slope_object)) or 
+	(place_meeting(x + facing, y + 1, slope_object) and not is_up_slope);
+if (is_up_slope or is_down_slope) {
+	script_execute(get_slope_angle);
+}
+
 //Sub-pixel movement
 sub_pixel_x += horizontal_speed;
 horizontal_speed = round(sub_pixel_x);
@@ -6,9 +17,25 @@ sub_pixel_y += vertical_speed;
 vertical_speed = round(sub_pixel_y);
 sub_pixel_y -= vertical_speed;
 
-script_execute(get_slope_angle);
-is_up_slope = (place_meeting(x + facing, y, slope_object) and not place_meeting(x - facing, y, slope_object));
-is_down_slope = (place_meeting(x - facing, y, slope_object) and not place_meeting(x + facing, y, slope_object));
+//Sprite facing
+var movement = 0;
+if (a_pressed and not d_pressed) {
+	movement = -1;
+	facing = -1;
+}
+else if (d_pressed and not a_pressed) {
+	movement = 1;
+	facing = 1;
+}
+else {
+	movement = 0;
+}
+
+horizontal_accel = air_accel;
+if (is_on_ground) {
+	horizontal_accel = ground_accel;
+}
+horizontal_speed += movement * horizontal_accel;
 
 if (not is_on_ground) {
 	vertical_speed += grav;
@@ -54,11 +81,13 @@ repeat(abs(vertical_speed)) {
 	//Flat ground
     if (place_meeting(x, y + sign(vertical_speed), solid_object)) {
         vertical_speed = 0;
+		show_debug_message("bonk0")
 		break;
 	}
     y += sign(vertical_speed);
 }
 
+//Slow down when walking up slopes
 if (is_up_slope) {
 	if (abs(horizontal_speed) >= incline) {
 		horizontal_speed -= sign(horizontal_speed) * incline;
@@ -68,58 +97,62 @@ if (is_up_slope) {
 	}
 }
 
+//Horizontal motion
 repeat(abs(horizontal_speed)) {
+	var stop_early = false;
+	show_debug_message("hspeed: " + string(horizontal_speed) + " incline: " + string(incline) +
+		" up slope: " + string(is_up_slope) + " down slope: " + string(is_down_slope));
     //Slopes
 	if (is_up_slope) {
-		y -= 1;
+		for (var i = 0; i < incline; i++) {
+			if (place_meeting(x, y - 1, solid_object)) {
+				show_debug_message("bonk1")
+				stop_early = true;
+				break;
+			}
+			y -= 1;
+		}
 	}
 	else if (is_down_slope) {
 		for (var i = 0; i < incline; i++) {
-			if (not place_meeting(x, y + 1, wall_object)) {
-				y += 1;
+			if (place_meeting(x + sign(horizontal_speed), y + 1, solid_object)) {
+				show_debug_message("bonk2")
+				stop_early = true;
+				break;
 			}
+			y += 1;
 		}
 	}
-	if (place_meeting(x + sign(horizontal_speed), y, solid_object)) {
+	else if (place_meeting(x + sign(horizontal_speed), y, solid_object)) {
         horizontal_speed = 0;
+		stop_early = true;
+		break;
+	}
+	if (stop_early) {
 		break;
 	}
 	x += sign(horizontal_speed);
 }
 
-//More slope physics
-if (rmb_pressed) {
+//Slide down slopes if crouched
+if (s_pressed) {
 	if (is_down_slope) {
 		//Accelerate down slopes
-		var tmp = "a: " + string(facing * incline * grav) + "i: " + string(incline);
-		show_debug_message(tmp);
 		horizontal_speed += facing * incline * grav;
-	}
-	else if (is_up_slope) {
-		if (abs(horizontal_speed) == 0) {
-			var tmp = "b: " + string(sign(horizontal_speed) * -1);
-			show_debug_message(tmp);
-			horizontal_speed = -1 * sign(horizontal_speed);	//Reverse direction
-		}
-		else if (abs(horizontal_speed) <= 1) {
-			var tmp = "c: " + string(sign(horizontal_speed) * 0.1);
-			show_debug_message(tmp);
-			horizontal_speed = 0 * sign(horizontal_speed);
-		}
-		else {
-			var tmp = "d: " + string(sign(horizontal_speed) * incline * grav * fric);
-			show_debug_message(tmp);
-			horizontal_speed -= sign(horizontal_speed) * incline * grav * fric;
-		}
-	}
-	else if (horizontal_speed == 0) {
-		if (place_meeting(x + 1, y + 1, slope_object) and not place_meeting(x, y + 1, wall_object)) {
-			horizontal_speed = -1;	
-		}
-		else if (place_meeting(x - 1, y + 1, slope_object) and not place_meeting(x, y + 1, wall_object)) {
-			horizontal_speed = 1;
-		}
 	}
 }
 
-//show_debug_message(horizontal_speed);
+//Apply friction
+var coefficient = air_resistance;
+if (is_on_ground) {
+	coefficient = fric;
+}
+if (s_pressed) {
+	if (is_down_slope) {
+		coefficient = 0;
+	}
+	else if (is_on_ground) {
+		coefficient = 0.1;
+	}
+}
+script_execute(apply_friction_and_air_resistance, coefficient);

@@ -23,6 +23,7 @@ space_pressed = false;
 lmb_pressed = false;
 rmb_pressed = false;
 facing = 1;
+is_on_ground = false;
 is_down_slope = false;
 is_up_slope = false;
 incline = 0;
