@@ -79,6 +79,7 @@ repeat(abs(vertical_speed)) {
 		break;
 	}
     y += sign(vertical_speed);
+	script_execute(object_collisions);
 }
 
 //Horizontal motion
@@ -133,6 +134,7 @@ repeat(abs(horizontal_speed)) {
 		break;
 	}
 	x += sign(horizontal_speed);
+	script_execute(object_collisions);
 }
 
 //Slide down slopes if crouched

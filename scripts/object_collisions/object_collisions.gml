@@ -10,6 +10,7 @@ if (coin) {
 //Collision with hazards
 if (place_meeting(x, y, hazard_object)) {
 	audio_play_sound(death_sound, 1, false);
+	instance_destroy();
 	global.deaths += 1;
 	global.just_died = true;
 	room_restart();
@@ -21,9 +22,11 @@ if (gate) {
 	if (gate.is_open) {
 		audio_play_sound(gate_sound, 1, false);
 		if room_exists(room_next(room)) {
+			instance_destroy();
 			room_goto_next();
 		}
 		else {
+			instance_destroy();
 			room_goto(room_first);
 		}
 	}
