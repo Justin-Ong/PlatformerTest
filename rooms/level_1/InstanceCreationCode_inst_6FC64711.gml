@@ -1,1 +1,1 @@
-text = "Space to jump";
+text = "Space = Jump";

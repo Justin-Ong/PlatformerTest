@@ -105,11 +105,6 @@ repeat(abs(horizontal_speed)) {
 		upslope_slowed = true;
 	}
 	
-	show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +
-		" incline: " + string(incline) + " up slope: " + string(is_up_slope) + " on ground: " + string(is_on_ground) +
-		" down slope: " + string(is_down_slope) + " phspeed: " + string(prev_horizontal_speed) +
-		" x: " + string(x) + " y: " + string(y));
-	
 	var stop_early = false;
     //Slopes
 	if (is_up_slope) {
@@ -159,3 +154,10 @@ if (s_pressed) {
 	}
 }
 script_execute(apply_friction_and_air_resistance, coefficient);
+
+/*
+show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +
+	" incline: " + string(incline) + " up slope: " + string(is_up_slope) + " on ground: " + string(is_on_ground) +
+	" down slope: " + string(is_down_slope) + " phspeed: " + string(prev_horizontal_speed) +
+	" x: " + string(x) + " y: " + string(y));
+*/

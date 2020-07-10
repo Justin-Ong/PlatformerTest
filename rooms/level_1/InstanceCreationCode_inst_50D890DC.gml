@@ -1,1 +1,1 @@
-text = "S to crouch\nTap Space repeatedly to walljump"
+text = "Space + Wall = Walljump"

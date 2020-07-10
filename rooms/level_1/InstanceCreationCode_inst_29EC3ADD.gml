@@ -1,1 +1,1 @@
-text = "A/D to move";
+text = "A/D = Move";
