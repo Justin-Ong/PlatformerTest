@@ -112,25 +112,27 @@ repeat(abs(horizontal_speed)) {
 		if (place_meeting(x, y - incline, solid_object)) {
 			show_debug_message("bonk1")
 			stop_early = true;
-			break;
 		}
-		y -= incline;
+		else {
+			y -= incline;
+		}
 	}
 	else if (is_down_slope) {
 		if (place_meeting(x + sign(horizontal_speed), y + incline, solid_object)) {
 			show_debug_message("bonk2")
 			stop_early = true;
-			break;
 		}
-		y += incline;
+		else {
+			y += incline;
+		}
 	}
 	if (place_meeting(x + sign(horizontal_speed), y, solid_object)) {
 		show_debug_message("bonk3")
         horizontal_speed = 0;
 		stop_early = true;
-		break;
 	}
 	if (stop_early) {
+		script_execute(object_collisions);
 		break;
 	}
 	x += sign(horizontal_speed);
@@ -141,7 +143,7 @@ repeat(abs(horizontal_speed)) {
 if (s_pressed) {
 	if (is_down_slope) {
 		//Accelerate down slopes
-		horizontal_speed += facing * incline * grav;
+		horizontal_speed += facing * (1 + incline);
 	}
 }
 
@@ -156,10 +158,9 @@ if (s_pressed) {
 	}
 }
 script_execute(apply_friction_and_air_resistance, coefficient);
+script_execute(object_collisions);
 
-/*
 show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +
 	" incline: " + string(incline) + " up slope: " + string(is_up_slope) + " on ground: " + string(is_on_ground) +
 	" down slope: " + string(is_down_slope) + " phspeed: " + string(prev_horizontal_speed) +
 	" x: " + string(x) + " y: " + string(y));
-*/

@@ -1,6 +1,6 @@
 
 {
-    "name": "level_2",
+    "name": "level1",
     "id": "c37500a3-8b18-405c-91b0-85fd5e3c4fe2",
     "creationCodeFile": "",
     "inheritCode": false,
