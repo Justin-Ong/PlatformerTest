@@ -3,6 +3,14 @@ is_on_ground = place_meeting(x, y + 3, solid_object);
 is_touching_left_wall = place_meeting(x - 1, y, solid_object);
 is_touching_right_wall = place_meeting(x + 1, y, solid_object);
 
+//Jump grace period
+if (is_on_ground) {
+	on_ground_timer = on_ground_timer_max;
+}
+else if (not is_on_ground and on_ground_timer > 0) {
+	on_ground_timer -= 1;
+}
+
 //Sprite facing
 var movement = 0;
 if (a_pressed and not d_pressed) {
@@ -27,7 +35,7 @@ horizontal_speed += movement * horizontal_accel;
 if (not is_on_ground) {
 	vertical_speed += grav;
 }
-if (is_on_ground and space_pressed) {
+if ((on_ground_timer > 0) and space_pressed) {
 	if (s_pressed) {
 		vertical_speed -= crouch_jump_speed;
 	}
@@ -154,13 +162,15 @@ if (is_on_ground) {
 }
 if (s_pressed) {
 	if (is_down_slope) {
-		coefficient = 0;
+		coefficient = 0.1;
 	}
 }
 script_execute(apply_friction_and_air_resistance, coefficient);
 script_execute(object_collisions);
 
+/*
 show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +
 	" incline: " + string(incline) + " up slope: " + string(is_up_slope) + " on ground: " + string(is_on_ground) +
 	" down slope: " + string(is_down_slope) + " phspeed: " + string(prev_horizontal_speed) +
 	" x: " + string(x) + " y: " + string(y));
+*/
