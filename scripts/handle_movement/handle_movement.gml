@@ -34,7 +34,7 @@ if (is_on_ground) {
 horizontal_speed += movement * horizontal_accel;
 
 
-if (not is_on_ground) {
+if (not place_meeting(x, y + 1, solid_object)) {
 	vertical_speed += grav;
 }
 if ((on_ground_timer > 0) and space_pressed) {
