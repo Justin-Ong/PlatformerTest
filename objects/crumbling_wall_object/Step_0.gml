@@ -1,5 +1,9 @@
-if (place_meeting(x, y - 3, player_object) and not is_crumbling) {
-	is_crumbling = true;
+if (not is_crumbling) {
+	if (place_meeting(x, y - 3, player_object) or 
+		place_meeting(x - 1, y, player_object) or 
+		place_meeting(x + 1, y, player_object)) {
+		is_crumbling = true;
+	}
 }
 
 if (is_crumbling) {

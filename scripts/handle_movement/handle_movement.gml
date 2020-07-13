@@ -25,6 +25,8 @@ else {
 	movement = 0;
 }
 
+script_execute(handle_moving_platforms);
+
 horizontal_accel = air_accel;
 if (is_on_ground) {
 	horizontal_accel = ground_accel;
@@ -83,7 +85,6 @@ repeat(abs(vertical_speed)) {
 	//Flat ground
     if (place_meeting(x, y + sign(vertical_speed), solid_object)) {
         vertical_speed = 0;
-		show_debug_message("bonk0")
 		break;
 	}
     y += sign(vertical_speed);
@@ -118,7 +119,6 @@ repeat(abs(horizontal_speed)) {
     //Slopes
 	if (is_up_slope) {
 		if (place_meeting(x, y - incline, solid_object)) {
-			show_debug_message("bonk1")
 			stop_early = true;
 		}
 		else {
@@ -127,7 +127,6 @@ repeat(abs(horizontal_speed)) {
 	}
 	else if (is_down_slope) {
 		if (place_meeting(x + sign(horizontal_speed), y + incline, solid_object)) {
-			show_debug_message("bonk2")
 			stop_early = true;
 		}
 		else {
@@ -135,7 +134,6 @@ repeat(abs(horizontal_speed)) {
 		}
 	}
 	if (place_meeting(x + sign(horizontal_speed), y, solid_object)) {
-		show_debug_message("bonk3")
         horizontal_speed = 0;
 		stop_early = true;
 	}
@@ -167,11 +165,6 @@ if (s_pressed) {
 }
 script_execute(apply_friction_and_air_resistance, coefficient);
 script_execute(object_collisions);
-
-var platform = instance_place(x, y + 3, moving_platform);
-if (platform != noone) {
-	other.x += (platform.dir * platform.move_speed);
-}
 
 /*
 show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +

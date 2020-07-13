@@ -6,8 +6,3 @@ else if (x <= initial_x) {
 }
 
 x += dir * move_speed;
-
-var player = instance_place(x, y, player_object);
-if (player != noone) {
-	player.x += dir * move_speed;
-}
