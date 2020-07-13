@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "0af25dbe-b467-43b1-b703-eb606d7337e2",
+            "Value": {
+                "id": "7ae4a4b6-59c2-477e-a803-1c7e8b2354d1",
+                "resourcePath": "objects\\left_moving_wall_object\\left_moving_wall_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0c775e24-75fd-4ca5-a56a-48c5bef98c1d",
             "Value": {
                 "id": "350f06af-a3d6-4018-9a92-7ebb285a2db6",
@@ -207,6 +215,14 @@
             }
         },
         {
+            "Key": "48f560ce-4819-4f08-88c1-61b55cc958ab",
+            "Value": {
+                "id": "b46673ed-55e9-4f19-b373-435bd173b3f3",
+                "resourcePath": "objects\\right_moving_wall_object\\right_moving_wall_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4ec09402-47dd-4fec-9934-a90caafcd720",
             "Value": {
                 "id": "eb1a68bc-9dcd-4ba2-a2ad-e14238fdc85c",
@@ -219,6 +235,14 @@
             "Value": {
                 "id": "351c88d7-f5ec-4a86-8cc8-226574e87085",
                 "resourcePath": "rooms\\level6\\level6.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "53dfeec1-ab64-4c51-9718-9b1ca3bdc967",
+            "Value": {
+                "id": "774af29f-5ee3-4413-80d7-4125c9bfd643",
+                "resourcePath": "rooms\\level10\\level10.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -251,6 +275,14 @@
             "Value": {
                 "id": "c97f2741-6934-4204-92e2-df2c2849a59f",
                 "resourcePath": "objects\\crumbling_wall_object\\crumbling_wall_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "65f92ecf-4e84-4165-b798-6035bab027c7",
+            "Value": {
+                "id": "1ef1207a-853a-4cf3-a1c5-10631763a099",
+                "resourcePath": "objects\\moving_platform\\moving_platform.yy",
                 "resourceType": "GMObject"
             }
         },

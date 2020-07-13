@@ -168,6 +168,11 @@ if (s_pressed) {
 script_execute(apply_friction_and_air_resistance, coefficient);
 script_execute(object_collisions);
 
+var platform = instance_place(x, y + 3, moving_platform);
+if (platform != noone) {
+	other.x += (platform.dir * platform.move_speed);
+}
+
 /*
 show_debug_message("hspeed: " + string(horizontal_speed) + " vspeed " + string(vertical_speed) +
 	" incline: " + string(incline) + " up slope: " + string(is_up_slope) + " on ground: " + string(is_on_ground) +
