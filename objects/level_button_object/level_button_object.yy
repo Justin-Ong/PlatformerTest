@@ -4,7 +4,36 @@
     "mvc": "1.0",
     "name": "level_button_object",
     "eventList": [
-        
+        {
+            "id": "1e6127b5-8a52-4b59-80cc-56c67bec5cfc",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "686ec8fb-0bd5-40d0-97d7-5eff441ac6af"
+        },
+        {
+            "id": "5b50eb3e-455b-4c5e-afc2-493dd9a785fa",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "686ec8fb-0bd5-40d0-97d7-5eff441ac6af"
+        },
+        {
+            "id": "4deedc74-82c5-4c17-bafb-48dd7cce3508",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 4,
+            "eventtype": 6,
+            "m_owner": "686ec8fb-0bd5-40d0-97d7-5eff441ac6af"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
