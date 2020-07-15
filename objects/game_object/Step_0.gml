@@ -5,7 +5,7 @@ if (global.just_died) {
 	global.just_died = false;
 }
 
-r_pressed = keyboard_check(ord("r")) or keyboard_check(ord("R"));
-if (r_pressed) {
+reset_pressed = keyboard_check(global.reset_key);
+if (reset_pressed) {
 	room_goto(room_first);
 }

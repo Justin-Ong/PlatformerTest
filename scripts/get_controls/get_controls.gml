@@ -1,6 +1,3 @@
-global.deaths = 0;
-global.just_died = false;
-
 ini_open("gamedata.ini");
 global.jump_key = ini_read_real("controls", "jump_key", vk_space);
 global.cling_key = ini_read_real("controls", "cling_key", vk_lshift);

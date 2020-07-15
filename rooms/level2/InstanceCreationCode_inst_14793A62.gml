@@ -1,1 +1,1 @@
-text = "S and Space to high jump"
+text = print_chr(global.duck_key) + " and " + print_chr(global.jump_key) + " to high jump"

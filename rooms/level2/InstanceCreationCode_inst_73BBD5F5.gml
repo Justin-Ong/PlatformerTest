@@ -1,1 +1,1 @@
-text = "LShift = Wallcling"
+text = print_chr(global.cling_key) + " = Wallcling"

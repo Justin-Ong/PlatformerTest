@@ -1,10 +1,8 @@
 //Controls
-s_pressed = keyboard_check(ord("s")) or keyboard_check(ord("S"));
-a_pressed = keyboard_check(ord("a")) or keyboard_check(ord("A"));
-d_pressed = keyboard_check(ord("d")) or keyboard_check(ord("D"));
-shift_pressed = keyboard_check(vk_lshift);
-space_pressed = keyboard_check_pressed(vk_space);
-lmb_pressed = mouse_check_button(mb_left);
-rmb_pressed = mouse_check_button(mb_right);
+left_pressed = keyboard_check(global.left_key);
+right_pressed = keyboard_check(global.right_key);
+duck_pressed = keyboard_check(global.duck_key);
+cling_pressed = keyboard_check(global.cling_key);
+jump_pressed = keyboard_check_pressed(global.jump_key);
 
 script_execute(sprite_handling);

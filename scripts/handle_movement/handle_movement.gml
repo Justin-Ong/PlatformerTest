@@ -13,11 +13,11 @@ else if (not is_on_ground and on_ground_timer > 0) {
 
 //Sprite facing
 var movement = 0;
-if (a_pressed and not d_pressed) {
+if (left_pressed and not right_pressed) {
 	movement = -1;
 	facing = -1;
 }
-else if (d_pressed and not a_pressed) {
+else if (right_pressed and not left_pressed) {
 	movement = 1;
 	facing = 1;
 }
@@ -37,8 +37,8 @@ horizontal_speed += movement * horizontal_accel;
 if (not place_meeting(x, y + 1, solid_object)) {
 	vertical_speed += grav;
 }
-if ((on_ground_timer > 0) and space_pressed) {
-	if (s_pressed) {
+if ((on_ground_timer > 0) and jump_pressed) {
+	if (duck_pressed) {
 		vertical_speed -= crouch_jump_speed;
 	}
 	else {
@@ -56,29 +56,29 @@ sub_pixel_y -= vertical_speed;
 
 //Walljumping and wallsliding
 if (is_touching_left_wall and not is_on_ground) {
-	if (space_pressed) {
+	if (jump_pressed) {
 		vertical_speed -= wall_jump_vertical_speed;
 		horizontal_speed += wall_jump_horizontal_speed;
 	}
-	if (shift_pressed and slide_timer < slide_time_limit) {
+	if (cling_pressed and slide_timer < slide_time_limit) {
 		vertical_speed *= slide_resistance;
 		slide_timer += 1;
 		effect_create_below(ef_smoke, x, y, 0, c_gray);
 	}
 }
 else if (is_touching_right_wall and not is_on_ground) {
-	if (space_pressed) {
+	if (jump_pressed) {
 		vertical_speed -= wall_jump_vertical_speed;
 		horizontal_speed -= wall_jump_horizontal_speed;
 	}
-	if (shift_pressed and slide_timer < slide_time_limit) {
+	if (cling_pressed and slide_timer < slide_time_limit) {
 		vertical_speed *= slide_resistance;
 		slide_timer += 1;
 		effect_create_below(ef_smoke, x, y, 0, c_gray);
 	}
 }
 
-if (not shift_pressed and slide_timer > 0) {
+if (not cling_pressed and slide_timer > 0) {
 	slide_timer -= 0.5;
 }
 repeat(abs(vertical_speed)) {
@@ -146,7 +146,7 @@ repeat(abs(horizontal_speed)) {
 }
 
 //Slide down slopes if crouched
-if (s_pressed) {
+if (duck_pressed) {
 	if (is_down_slope) {
 		//Accelerate down slopes
 		horizontal_speed += facing * (1 + incline);
@@ -158,7 +158,7 @@ var coefficient = air_resistance;
 if (is_on_ground) {
 	coefficient = fric;
 }
-if (s_pressed) {
+if (duck_pressed) {
 	if (is_down_slope) {
 		coefficient = 0.1;
 	}

@@ -1,5 +1,5 @@
 //Sprite handling
-if (is_on_ground and s_pressed) {
+if (is_on_ground and duck_pressed) {
 	sprite_index = player_crouch_sprite;
 }
 else {

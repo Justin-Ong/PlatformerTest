@@ -1,1 +1,1 @@
-text = "Space = Jump";
+text = print_chr(global.jump_key) + " = Jump";

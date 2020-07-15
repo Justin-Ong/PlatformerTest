@@ -367,6 +367,14 @@
             }
         },
         {
+            "Key": "630d4e5a-6540-4aaa-a35a-dcdb366b3c62",
+            "Value": {
+                "id": "602f096e-5e11-465e-bdd7-01e148125234",
+                "resourcePath": "sprites\\arrow_button_sprite\\arrow_button_sprite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "65f92ecf-4e84-4165-b798-6035bab027c7",
             "Value": {
                 "id": "1ef1207a-853a-4cf3-a1c5-10631763a099",
@@ -391,11 +399,27 @@
             }
         },
         {
+            "Key": "6e0dcf00-22dd-47e0-b6e3-a0b4ab9cceba",
+            "Value": {
+                "id": "c846e4f1-65d8-49c9-a2c5-25c4a4ca9e16",
+                "resourcePath": "objects\\arrow_button_object\\arrow_button_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6ed54b9e-79c4-4f32-91d6-f48a63ba8331",
             "Value": {
                 "id": "9e77720d-3a6d-478c-a7ce-28a78a9f680a",
                 "resourcePath": "sprites\\wall_block_sprite\\wall_block_sprite.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7044b4a3-4f42-490f-b703-b0e4fa5cc56d",
+            "Value": {
+                "id": "70cbf957-0b28-4190-b657-40a22d1efd6c",
+                "resourcePath": "datafiles_yy\\gamedata.ini.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -431,6 +455,14 @@
             }
         },
         {
+            "Key": "76be8a51-ae5c-427c-a4ab-2a9e19bd0f92",
+            "Value": {
+                "id": "328b02a5-ab65-4c44-bbec-8c8f822db22a",
+                "resourcePath": "objects\\checkbox_object\\checkbox_object.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7a8064c6-4397-4c63-a4d4-98a2db9da929",
             "Value": {
                 "id": "4a39ec0e-9d1e-4419-81ff-907ed503848c",
@@ -460,6 +492,14 @@
                 "id": "5307dc72-1eb8-4730-baf1-b06211df98d1",
                 "resourcePath": "objects\\upwards_moving_wall_object\\upwards_moving_wall_object.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7e30b369-2b24-4b37-bec4-1c489b7e080d",
+            "Value": {
+                "id": "60fd83b0-8c1b-47b5-8208-b6f1b2c65be7",
+                "resourcePath": "scripts\\get_controls\\get_controls.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -663,6 +703,14 @@
             }
         },
         {
+            "Key": "b819332c-910c-4c27-85ef-403c3672ca8e",
+            "Value": {
+                "id": "ade0c4da-c5f6-44e8-b6f7-4be8177e3e6b",
+                "resourcePath": "sprites\\checkbox_sprite\\checkbox_sprite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b912b42f-3b4e-494e-85e0-29230d194e16",
             "Value": {
                 "id": "07d7b0fa-e0a0-4a15-a919-d7f94a698293",
@@ -724,6 +772,14 @@
                 "id": "28067a81-1d28-4bc5-b5b6-c115ac161bc4",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "d2b45812-9b59-4224-8776-9cf8bf009243",
+            "Value": {
+                "id": "dc594eb9-7415-4642-9c1f-03e299ae0cff",
+                "resourcePath": "scripts\\print_chr\\print_chr.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -814,7 +870,9 @@
         "418d8a11-3f6d-4a1a-b07c-6069fbf65dec",
         "bd8e5487-69dd-4fac-95c2-6bf2a9d486ec",
         "12e2d33d-b155-4e25-aef0-700410b51ee3",
-        "50d3371a-7360-4b42-8acd-60c546d339ef"
+        "50d3371a-7360-4b42-8acd-60c546d339ef",
+        "d2b45812-9b59-4224-8776-9cf8bf009243",
+        "7e30b369-2b24-4b37-bec4-1c489b7e080d"
     ],
     "tutorial": ""
 }

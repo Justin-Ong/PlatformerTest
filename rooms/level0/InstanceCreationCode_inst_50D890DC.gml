@@ -1,1 +1,1 @@
-text = "Space + Wall = Walljump"
+text = print_chr(global.jump_key) + " + Wall = Walljump"
