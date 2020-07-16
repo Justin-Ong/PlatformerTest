@@ -423,14 +423,6 @@
             }
         },
         {
-            "Key": "7044b4a3-4f42-490f-b703-b0e4fa5cc56d",
-            "Value": {
-                "id": "70cbf957-0b28-4190-b657-40a22d1efd6c",
-                "resourcePath": "datafiles_yy\\gamedata.ini.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "735e8882-fdd0-48eb-849e-c98515a4b512",
             "Value": {
                 "id": "40097ac6-7ca5-43f7-b0f0-9f0e5cbbd30f",
