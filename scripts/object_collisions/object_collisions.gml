@@ -11,9 +11,14 @@ if (coin) {
 if (place_meeting(x, y, hazard_object)) {
 	audio_play_sound(death_sound, 1, false);
 	instance_destroy();
-	global.deaths += 1;
-	global.just_died = true;
-	room_restart();
+	if (global.hardcore_enabled == 1) {
+		room_goto(level0);
+	}
+	else {
+		global.deaths += 1;
+		global.just_died = true;
+		room_restart();
+	}
 }
 
 //Collision with gate

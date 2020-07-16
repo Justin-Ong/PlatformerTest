@@ -9,11 +9,11 @@ if (is_changing) {
 		created = noone;
 	}
 	if (keyboard_key != 0) {
-		new_key = keyboard_key;
 		is_changing = false;
 		ini_open("gamedata.ini");
-		ini_write_real("controls", key, new_key);
+		ini_write_real("controls", key, keyboard_key);
 		ini_close();
-		script_execute(get_controls);
+		script_execute(read_ini);
+		text = replace_controls_text(text, key);
 	}
 }
