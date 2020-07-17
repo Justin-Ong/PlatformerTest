@@ -7,12 +7,26 @@ if (coin) {
 	}
 }
 
+//Collision with secret
+var secret = instance_place(x, y, secret_object);
+if (secret and secret.is_visible) {
+	audio_play_sound(coin_collect_sound, 1, false);
+	with (secret) {
+		instance_destroy();
+	}
+	var level = room - 3; //exclude main menu, level select, options
+	ini_open("gamedata.ini");
+	ini_write_real("secrets", level, 1);
+	ini_close();
+	script_execute(read_ini);
+}
+
 //Collision with hazards
 if (place_meeting(x, y, hazard_object)) {
 	audio_play_sound(death_sound, 1, false);
 	instance_destroy();
 	if (global.hardcore_enabled == 1) {
-		room_goto(level0);
+		room_goto(main_menu);
 	}
 	else {
 		global.deaths += 1;
@@ -32,7 +46,7 @@ if (gate) {
 		}
 		else {
 			instance_destroy();
-			room_goto(room_first);
+			room_goto(main_menu);
 		}
 	}
 }

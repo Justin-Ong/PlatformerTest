@@ -1,5 +1,6 @@
 var platform = instance_place(x, y + 5, moving_platform);
 if (platform != noone) {
+	is_on_ground = true;
 	if (instance_exists(left_moving_wall_object) and 
 		platform.object_index == left_moving_wall_object.object_index) {
 		other.x += (platform.dir * platform.move_speed);

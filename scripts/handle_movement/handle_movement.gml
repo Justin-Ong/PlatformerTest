@@ -3,6 +3,8 @@ is_on_ground = place_meeting(x, y + 3, solid_object);
 is_touching_left_wall = place_meeting(x - 1, y, solid_object);
 is_touching_right_wall = place_meeting(x + 1, y, solid_object);
 
+script_execute(handle_moving_platforms);
+
 //Jump grace period
 if (is_on_ground) {
 	on_ground_timer = on_ground_timer_max;
@@ -24,8 +26,6 @@ else if (right_pressed and not left_pressed) {
 else {
 	movement = 0;
 }
-
-script_execute(handle_moving_platforms);
 
 horizontal_accel = air_accel;
 if (is_on_ground) {
