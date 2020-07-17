@@ -27,3 +27,4 @@ on_ground_timer_max = 3;
 is_down_slope = false;
 is_up_slope = false;
 incline = 0;
+secret_collected = false;

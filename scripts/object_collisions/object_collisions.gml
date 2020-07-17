@@ -12,13 +12,9 @@ var secret = instance_place(x, y, secret_object);
 if (secret and secret.is_visible) {
 	audio_play_sound(coin_collect_sound, 1, false);
 	with (secret) {
-		instance_destroy();
+		instance_destroy();	
 	}
-	var level = room - 3; //exclude main menu, level select, options
-	ini_open("gamedata.ini");
-	ini_write_real("secrets", level, 1);
-	ini_close();
-	script_execute(read_ini);
+	secret_collected = true;
 }
 
 //Collision with hazards
@@ -40,6 +36,14 @@ var gate = instance_place(x, y, gate_object);
 if (gate) {
 	if (gate.is_open) {
 		audio_play_sound(gate_sound, 1, false);
+		if (secret_collected) {
+			var level = room - 3; //exclude main menu, level select, options
+			ini_open("gamedata.ini");
+			ini_write_real("secrets", level, 1);
+			ini_close();
+			script_execute(read_ini);
+			secret_collected = false;
+		}
 		if room_exists(room_next(room)) {
 			instance_destroy();
 			room_goto_next();
