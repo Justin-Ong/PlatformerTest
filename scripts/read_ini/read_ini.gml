@@ -21,4 +21,5 @@ global.secret11 = ini_read_real("secrets", "11", 0);
 global.secret12 = ini_read_real("secrets", "12", 0);
 global.secret13 = ini_read_real("secrets", "13", 0);
 global.secret14 = ini_read_real("secrets", "14", 0);
+global.secret14 = ini_read_real("secrets", "15", 0);
 ini_close();
