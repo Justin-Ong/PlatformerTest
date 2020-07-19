@@ -1,4 +1,3 @@
-Wall sliding sound: http://soundbible.com/1798-Cloth.html
-Coin sound: https://www.fesliyanstudios.com/play-mp3/6273
-Death sound: https://freesound.org/people/fordps3/sounds/186669/
-Portal sound: https://www.soundsnap.com/pm_fn_spawns_portals_teleports_4_wav
+Coin sound from https://www.fesliyanstudios.com/
+Death sound from https://freesound.org/
+Portal sound from https://www.soundsnap.com/
